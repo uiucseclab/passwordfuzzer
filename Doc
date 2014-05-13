@@ -1,0 +1,46 @@
+Documentation
+
+CS 460 Project Fuzzerify
+
+Summary:
+For our semester project we developed a context aware or "smart" fuzzer. The purpose of our fuzzer is to attempt to
+determine an individual's password. We built a chrome extension that generates a dictionary of possible passwords
+based on a number of different heuristics namely a user's birthday (day, month, and year) if it is known, a person's
+interests, likes, and other words that would generally describe them or their personality. After getting all of this 
+information we can do a number of different tricks to try and guess what a user's password is. 
+
+ALl this information...What to do...
+With the birthday information we can append the year to the end of their potential password 
+(either the whole year ex. 1975 or just the last two digits ex. 75). The rational behind doing this is that people 
+commonly append their year of their birthday when a website requires them to enter numbers in their password. Using
+birth year is easy to remember for a lot of people so they just append it to the end of their password. Another
+technique that we use just using a person's full birthday as their password. Here we can subsitute the month name instead 
+of the month in numeric form if we want.
+
+Some Examples: May82004, jan231999, 01012000
+
+Moving on from birthdays we have the information we get that corresponds to a user's personality, behavior, or general
+information about their life. Rather than just using these words as passwords we excercise a couple of common tricks
+people tend to make when creating their passwords such as changing a to @ or s to $ and a couple of other tricks.
+We built functionality that allows us to pick how many symbols we want to change in a word or phrase. For example
+lets say one of the potential passwords we have is ambulance, we can convert ambulance -> @mbul@nc3. Suddenly we have
+something that very well could be someone's password. Other thing we do to find all of these words/interests/relations
+that people have tied to them is to lookup words that are commonly associated. What this means that we can take one word
+that relates to a person and built a bunch of other words that are commonly used or associated with that word. Lets look
+at another example, lets say we have the word soccer. Well other words that are related to soccer are futbol, player, field,
+cup, tournament, ball, sport, etc. So from that one word we can generate a whole list of other words that a user could 
+possibly use as their password in combination with the changing of letters or appending of birthday's/birth years.
+
+Files:
+Popup.html - HTML code used for the chrome extension itself
+Manifest.json - File needed for chrome extension sets up all basic functionality required for buliding a chrome extension
+icon.png - image that displays in browser to open chrome extension
+dictionary.js - builds the dictionary of words by changing their characters ex a -> @
+jquery.js - cuz jquery is awesome
+sample.js - the core of the program and how it is all tied together
+actionScript.js - functionality for passing password to actual html field in a browser and getting response back
+
+
+
+
+
